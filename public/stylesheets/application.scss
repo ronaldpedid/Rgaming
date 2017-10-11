@@ -1,0 +1,61 @@
+
+
+//functions
+@function fluidize($target, $context) {
+  @return ($target / $context * 100);
+}
+//imports
+@import "partials/mixins";
+@import "partials/styleguide";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Fira Sans, sans-serif;
+}
+
+body {
+  background-color: $color-base-blue;
+  color: $color-base-w;
+
+}
+
+a {
+  &:active {
+    color: orange;
+  }
+  &:visited{
+    color: orange;
+  }
+}
+
+a, button {
+  cursor: pointer;
+}
+
+figure {
+  margin: 0;
+}
+
+ul, li, a, p {
+  text-decoration: none;
+}
+
+#mainLogo {
+  img {
+    @include alignSelf(center);
+    @include margin(0, auto);
+    height: auto;
+    width: 320px;
+    max-width: 320px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 320px) {
+      width: 50%;
+    }
+
+  }
+}
+

@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Fira Sans, sans-serif; }
+
+body {
+  background-color: #212c41;
+  color: #fff; }
+
+a:active {
+  color: orange; }
+
+a:visited {
+  color: orange; }
+
+a, button {
+  cursor: pointer; }
+
+figure {
+  margin: 0; }
+
+ul, li, a, p {
+  text-decoration: none; }
+
+#mainLogo img {
+  align-self: center;
+  margin: 0 auto;
+  height: auto;
+  width: 320px;
+  max-width: 320px; }
+  @media screen and (max-width: 768px) {
+    #mainLogo img {
+      width: 100%; } }
+  @media screen and (max-width: 320px) {
+    #mainLogo img {
+      width: 50%; } }
