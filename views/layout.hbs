@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  {{#if messages.success}}
+      <div>{{ messages.success }}</div>
+  {{/if}}
+  {{#if deleteaction.success}}
+      <div>{{ deleteaction.success }}</div>
+  {{/if}}
+  {{#if post.success}}
+      <div>{{ post.success }}</div>
+  {{/if}}
+  {{#if user}}
+      <div class="userinfo">
+          <span class="username">Welcome, {{user.username}}</span>
+          <a class="userlink" href="/logout">Logout</a>
+      </div>
+  {{/if}}
+    {{{body}}}
+  </body>
+</html>
