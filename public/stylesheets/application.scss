@@ -1,12 +1,11 @@
 
-
-//functions
-@function fluidize($target, $context) {
-  @return ($target / $context * 100);
-}
 //imports
 @import "partials/mixins";
 @import "partials/styleguide";
+@import "partials/flexbox";
+@import "partials/functions";
+@import "partials/cards";
+@import "partials/alert";
 
 * {
   box-sizing: border-box;
@@ -15,10 +14,11 @@
   font-family: Fira Sans, sans-serif;
 }
 
+//1rem = 14px
 body {
   background-color: $color-base-blue;
   color: $color-base-w;
-
+  font-size: 14px;
 }
 
 a {
@@ -40,6 +40,30 @@ figure {
 
 ul, li, a, p {
   text-decoration: none;
+}
+
+textarea, input{
+  margin: 1em;
+}
+textarea{
+  max-width: fluidize(768px, 1200px);
+  max-height: 400px;
+  width: 50%;
+  height: 400px;
+
+}
+
+input{
+  max-width: fluidize(768px, 1200px);
+  width: 50%;
+  padding: 1em;
+
+}
+
+textarea .editor{
+  height: 500px;
+  width: 400px;
+  color: black;
 }
 
 #mainLogo {

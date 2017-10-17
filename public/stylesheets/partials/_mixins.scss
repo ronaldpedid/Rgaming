@@ -1,0 +1,27 @@
+@import "styleguide";
+//mixins
+@mixin display($display) {
+  display: $display;
+}
+
+@mixin justify($align) {
+  justify-content: $align;
+}
+
+@mixin alignSelf($alignSelf) {
+  align-self: $alignSelf;
+}
+
+@mixin margin($marginX, $marginY) {
+  margin: $marginX $marginY;
+}
+
+@mixin font($color, $face){
+  color: $color_base;
+  font-family: $font_base;
+}
+
+@mixin flexFlow($dir, $wrap){
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+};

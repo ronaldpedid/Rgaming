@@ -1,0 +1,23 @@
+.card-wrapper{
+  @include flexFlow(col, wrap);
+
+}
+
+.card-wrapper-lg, .card-wrapper-sm{
+  @extend .card-wrapper;
+
+
+}
+
+.card-wrapper-sm{
+  border-radius: 1rem;
+  padding: 1rem;
+  @include margin(0, auto);
+  width: 350px;
+  height: auto;
+  margin-bottom: 1rem;
+  background-color: #1e6abc;
+  h3{
+    @include margin(1rem, auto);
+  }
+}

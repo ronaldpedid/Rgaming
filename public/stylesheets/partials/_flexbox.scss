@@ -1,0 +1,34 @@
+@import "mixins";
+
+.flex {
+  @include display(flex);
+}
+
+.col {
+  @include flexFlow(column, nowrap);
+}
+
+.row {
+  @include flexFlow(row, wrap);
+
+}
+
+.justify-c {
+  @include justify(center);
+}
+
+.justify-r {
+  @include justify(right);
+}
+
+.justify-l {
+  @include justify(left);
+}
+
+.alignSelf-c{
+  @include alignSelf(center);
+}
+
+.mar-center{
+  @include margin(0, auto);
+}

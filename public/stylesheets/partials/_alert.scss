@@ -1,0 +1,25 @@
+
+.flash-box{
+  border-radius: 5%;
+  color: $color-base-w;
+  padding: 1rem; //1rem = 14px
+  width: 25%;
+  max-width: 300px;
+  box-shadow: .525rem .525rem 3px;
+}
+
+.success{
+  @extend .flash-box;
+  background-color: green;
+}
+
+.error{
+  @extend .flash-box;
+  background-color: #f44336;
+}
+
+.warning{
+  @extend .flash-box;
+  background-color: #c09853;
+}
+

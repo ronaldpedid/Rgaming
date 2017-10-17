@@ -1,0 +1,15 @@
+<h1>Post articles here dammit!</h1>
+<h2>{{test}}</h2>
+
+    {{#if user}}
+        {{#each articles as |article|}}
+            {{#with article }}
+                <div class="card-wrapper-sm">
+                <h1>{{title}}</h1>
+                <h3>{{author}}</h3>
+                <span>{{{formatBlurb body}}} <a href="{{id}}">read more</a></span>
+                </div>
+            {{/with}}
+
+        {{/each}}
+    {{/if}}
