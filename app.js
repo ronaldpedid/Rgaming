@@ -14,6 +14,8 @@ function initializeApp(db) {
     const LocalStrategy = require('passport-local').Strategy;
     const expressHandlebars = require('express-handlebars');
     const User = require('./lib/models/User');
+    const Article= require('./lib/models/Article');
+    const Comment = require('./lib/models/Comment');
     const passport = require('passport');
     const config = require('./config');
     const creds = require('./config');
@@ -21,6 +23,7 @@ function initializeApp(db) {
     const flash = require('express-flash');
     const bluebird = require('bluebird');
     const htmlparser = require('htmlparser2');
+    const seedDB = require("./seeds");
 
 
     //routes
@@ -31,9 +34,12 @@ function initializeApp(db) {
     const logout = require('./routes/logout');
     const register = require('./routes/register');
     const articles = require('./routes/articles');
+    const comment = require('./routes/comments');
 
     const app = express();
     app.db = db;
+
+    // seedDB();
 //check connection
     db.once('open', function () {
         console.log('Connected to Mongo DB')
@@ -155,6 +161,7 @@ function initializeApp(db) {
     app.use('/register', register);
     app.use('/articles', articles);
     app.use('/articles/create', articles);
+    app.use("/articles/:id/comments", comment);
     authRouter.use('/logout', logout);
     app.use(authRouter);
 

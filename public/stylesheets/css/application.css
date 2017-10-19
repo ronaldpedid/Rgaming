@@ -31,18 +31,27 @@
 .card-wrapper-sm {
   border-radius: 1rem;
   padding: 1rem;
-  margin: 0 auto;
   width: 350px;
   height: auto;
+  margin-right: 1rem;
   margin-bottom: 1rem;
   background-color: #1e6abc; }
   .card-wrapper-sm h3 {
     margin: 1rem auto; }
+  .card-wrapper-sm img {
+    height: 175px;
+    width: 175px;
+    padding-right: .5rem; }
+  .card-wrapper-sm p {
+    align-self: flex-start; }
 
 .flash-box, .success, .error, .warning {
   border-radius: 5%;
   color: #fff;
-  padding: 1rem; }
+  padding: 1rem;
+  width: 25%;
+  max-width: 300px;
+  box-shadow: .525rem .525rem 3px; }
 
 .success {
   background-color: green; }

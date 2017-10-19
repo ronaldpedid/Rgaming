@@ -2,17 +2,24 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/css/application.css' />
+    <link rel='stylesheet' href='/stylesheets/css/jquery-te-1.4.0.css' />
   </head>
   <body>
   {{#if messages.success}}
-      <div>{{ messages.success }}</div>
+      <div class="flash-box success">{{ messages.success }}</div>
   {{/if}}
   {{#if deleteaction.success}}
-      <div>{{ deleteaction.success }}</div>
+      <div class="flash-box success">{{ deleteaction.success }}</div>
   {{/if}}
   {{#if post.success}}
       <div>{{ post.success }}</div>
+  {{/if}}
+  {{#if message.failure}}
+      <div>{{ message.failure }}</div>
+  {{/if}}
+  {{#if message.error}}
+      <div class="flash-box error">{{ message.error }}</div>
   {{/if}}
   {{#if user}}
       <div class="userinfo">
@@ -21,5 +28,21 @@
       </div>
   {{/if}}
     {{{body}}}
+  <!-- S C R I P T S -->
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/javascripts/jquery-3.2.1.min.js"></script>
+  <script src="/javascripts/main.js"></script>
+  <script src="/javascripts/plugin/tinymce/js/tinymce/tinymce.min.js"></script>
+  <script src="/javascripts/plugin/tinymce/js/tinymce/init-tinymce.js"></script>
+  <script src="/javascripts/jquery-te-1.4.0.min.js"></script>
+  <!-- Shoprocket JavaScript -->
+  <script>var $=jQuery.noConflict();</script>
+  <script>var JSR=jQuery;</script>
+  <script language="javascript" src="https://space.shoprocket.co/frontend/v8/sr.min.js"></script>
+  <input type="hidden" name="sr-companyid" id="sr-companyid" value="11542">
+
+  <!-- Shoprocket Basket Widget -->
+  <div id="sr-basket-widget" class="sr-right"><span class="sr-confirm-amount"></span></div>
   </body>
 </html>

@@ -12,12 +12,20 @@
 .card-wrapper-sm{
   border-radius: 1rem;
   padding: 1rem;
-  @include margin(0, auto);
   width: 350px;
   height: auto;
+  margin-right: 1rem;
   margin-bottom: 1rem;
   background-color: #1e6abc;
   h3{
     @include margin(1rem, auto);
+  }
+  img{
+    height: 175px;
+    width: 175px;
+    padding-right: .5rem;
+  }
+  p{
+    @include alignSelf(flex-start);
   }
 }

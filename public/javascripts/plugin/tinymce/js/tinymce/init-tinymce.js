@@ -18,7 +18,7 @@ tinymce.init({
     plugins: [
         "advlist autolink link image lists charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "save contextmenu directionality emoticons template paste textcolor"
+        "save table contextmenu directionality emoticons template paste textcolor"
     ],
     /* content css */
     content_css: [
@@ -26,7 +26,7 @@ tinymce.init({
         '//www.tinymce.com/css/codepen.min.css'
     ],
     /* toolbar */
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | fontselect fontsizeselect",
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | fontselect fontsizeselect | table",
 
     /* fonts */
     font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n',

@@ -3,8 +3,44 @@
 <p>{{color}}</p>
 <p><a href="{{data}}" target="_blank">google</a></p>
 
-{{#if user.username}}
+{{#if user.isAdmin}}
     <h1>{{user.username}} is the admin!</h1>
-    <h3>{{user.emailAddress}} is actually pickle rick!</h3>
+    <h3>{{user.email}} is actually pickle rick!</h3>
     <h3>only logged in users can see whats in between these tags.</h3>
 {{/if}}
+
+<!-- SHOPROCKET SR-BLOCK START -->
+<div class="sr-block sr-default" sr-meta="hero" sr-show-max="5" style="visibility: hidden;">
+    <div class="sr-item sr-buy-widget sr-small">
+        <div class="sr-image-holder">
+            <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image" title="[NAME]" alt="[NAME]"/>
+        </div>
+        <div class="sr-product-details">
+            <div class="sr-name">[NAME]</div>
+            <div class="sr-strapline">[STRAPLINE] </div>
+            <div class="sr-price">[CURRENCY][PRICE]</div>
+            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                <div class="sr-add"><i class="fa fa-shopping-cart"></i> Buy Now</div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- SHOPROCKET END -->
+
+<!-- SHOPROCKET SR-BLOCK START -->
+<div class="sr-block sr-default" sr-meta="card" sr-show-max="99" style="visibility: hidden;">
+    <div class="sr-item sr-buy-widget sr-small">
+        <div class="sr-image-holder">
+            <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image" title="[NAME]" alt="[NAME]"/>
+        </div>
+        <div class="sr-product-details">
+            <div class="sr-name">[NAME]</div>
+            <div class="sr-strapline">[STRAPLINE] </div>
+            <div class="sr-price">[CURRENCY][PRICE]</div>
+            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                <div class="sr-add"><i class="fa fa-shopping-cart"></i> Buy Now</div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- SHOPROCKET END -->

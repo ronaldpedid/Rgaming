@@ -50,11 +50,12 @@ router.post('/', function(req,res,next){
                 text: 'You are receiving this notification because someone (maybe you) has requested' +
                 'to change the password for this account. Please Click the following link to complete the' +
                 'process:' + '\n\n' +
-                'http://' + req.headers.host + '/forgot/reset/' + token + '\n\n' + ' Ignore if not requested.'
+                'http://' + req.headers.host + '/forgot/reset/' + token + '\n\n' +
+                ' If you are getting this email in error, please ignore. Thank you!'
             };
             smtpTransport.sendMail(mailOptions, function(err){
                 console.log('jobs done - mail sent success!');
-                req.flash('success', 'An email has been sent to ' + user.email + ' with instructions.' );
+                req.flash('success', 'An email has been sent to ' + user.email + ' with further instructions.' );
                 done(err, 'done');
             });
         }

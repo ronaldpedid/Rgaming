@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var links = ["http://google.com"];
+  let links = ["http://google.com"];
 
   res.render('index', {
       title: 'Ren Gaming',

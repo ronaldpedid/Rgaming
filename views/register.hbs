@@ -1,25 +1,32 @@
 <h1>Please register to edit the site.</h1>
-
-    <form action="/register" method="post">
+<div class="flex col">
+    <form action="/register" method="POST">
         <div>
             <label>First name</label>
-            <input type="text" name="name" value="" placeholder="First Name"/>
-
+            <input type="text" name="firstname" value="" placeholder="First Name"/>
+        </div>
+        <div>
             <label class="center">Last name</label>
             <input type="text" name="lastname" value="" placeholder="Last Name"/>
         </div>
+
         <div>
             <label class="center">Username</label>
-            <input type="text" name="username" value=""/>
+            <input type="text" name="username" value="" placeholder="Username"/>
+        </div>
 
+        <div>
             <label class="center">Password</label>
-            <input type="password" name="password" value=""/>
+            <input type="password" name="password" value="" placeholder="Your password"/>
         </div>
-        <div class="flex flex-flow-no-wr">
-            <label class="center">email</label>
-            <input type="email" name="emailAddress" value=""/>
+
+        <div>
+            <label for="email" class="center">email</label>
+            <input type="email" name="email" value="" placeholder="email address"/>
         </div>
-        <input class="btn margin-twenty" type="submit" value="register"/>
-    </form>
+
+</div>
+<input class="btn margin-twenty" type="submit" value="register"/>
+</form>
 </div>
 

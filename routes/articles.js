@@ -5,15 +5,15 @@ const Article = require('../lib/models/Article.js');
 
 //show articles index
 router.get('/', function (req, res, next) {
-    Article.find({}, function(err, article){
-       if(err){
-           console.log(err)
-       }else{
-           res.render('articles/index', {
-               articles: article,
-               test: "Hello Test"
-           });
-       }
+    Article.find({}, function (err, article) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.render('articles/index', {
+                articles: article,
+                test: "Hello Test"
+            });
+        }
     });
 });
 //show page to create a new article post
@@ -48,9 +48,9 @@ router.post('/', function (req, res, next) {
 });
 
 //show page to edit the article
-router.get('/:id/edit', function (req, res, next){
-    Article.findById(req.params.id, function(err, article){
-        if (err){
+router.get('/:id/edit', function (req, res, next) {
+    Article.findById(req.params.id, function (err, article) {
+        if (err) {
             throw err
         }
         console.log(article);
@@ -75,12 +75,16 @@ router.put('/:id', function (req, res) {
 });
 
 // "Delete the record"
-router.delete('/:id', function (req, res) {
-    Article.findByIdAndRemove({_id: req.params.id}, function (err) {
-        if (err) {
-            throw err;
-        }
-        res.redirect('/articles/');
+router.delete("/:id", function(req, res) {
+    Article.findByIdAndRemove(req.params.id, function(err, article) {
+        Comment.remove({
+            _id: {
+                $in: article.comments
+            }
+        }, function(err, comments) {
+            req.flash('error', article.title + ' deleted!');
+            res.redirect('/articles');
+        })
     });
 });
 
