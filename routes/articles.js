@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
                 test: "Hello Test"
             });
         }
-    });
+    }).sort({title:-1}).limit(5);
 });
 //show page to create a new article post
 router.get('/create', function (req, res, next) {

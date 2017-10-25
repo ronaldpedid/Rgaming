@@ -29,3 +29,22 @@
     @include alignSelf(flex-start);
   }
 }
+
+.card-wrapper-main{
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 350px;
+  height: 300px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: #1e6abc;
+  h3{
+    @include margin(1rem, auto);
+  }
+  img{
+    height: 175px;
+    width: 175px;
+    padding-right: .5rem;
+  }
+
+}

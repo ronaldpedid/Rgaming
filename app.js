@@ -25,7 +25,6 @@ function initializeApp(db) {
     const htmlparser = require('htmlparser2');
     const seedDB = require("./seeds");
 
-
     //routes
     const index = require('./routes/index');
     const forgot = require('./routes/forgot');
@@ -35,6 +34,7 @@ function initializeApp(db) {
     const register = require('./routes/register');
     const articles = require('./routes/articles');
     const comment = require('./routes/comments');
+    const product = require('./routes/products');
 
     const app = express();
     app.db = db;
@@ -161,7 +161,8 @@ function initializeApp(db) {
     app.use('/register', register);
     app.use('/articles', articles);
     app.use('/articles/create', articles);
-    app.use("/articles/:id/comments", comment);
+    app.use('/articles/:id/comments', comment);
+    app.use('/product/', product);
     authRouter.use('/logout', logout);
     app.use(authRouter);
 

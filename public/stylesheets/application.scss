@@ -1,4 +1,3 @@
-
 //imports
 @import "partials/mixins";
 @import "partials/styleguide";
@@ -6,6 +5,9 @@
 @import "partials/functions";
 @import "partials/cards";
 @import "partials/alert";
+@import "partials/store";
+@import "partials/navigation";
+@import "partials/footer";
 
 * {
   box-sizing: border-box;
@@ -16,16 +18,18 @@
 
 //1rem = 14px
 body {
-  background-color: $color-base-blue;
-  color: $color-base-w;
+  background-color: #4682B4;
   font-size: 14px;
+  font-family: "Droid Sans", Sans-serif;
+  color: $color-base-w;
+  overflow-x: hidden;
 }
 
 a {
   &:active {
     color: orange;
   }
-  &:visited{
+  &:visited {
     color: orange;
   }
 }
@@ -42,44 +46,57 @@ ul, li, a, p {
   text-decoration: none;
 }
 
-textarea, input{
+textarea, input {
   margin: 1em;
 }
-textarea{
+
+textarea {
   max-width: fluidize(768px, 1200px);
   max-height: 400px;
   width: 50%;
-  height: 400px;
+  height: 100%;
 
 }
 
-input{
+input {
   max-width: fluidize(768px, 1200px);
   width: 50%;
   padding: 1em;
-
 }
 
-textarea .editor{
+input#siteFilter {
+  width: calc(100%/1.8);
+  border-radius: 0.75rem;
+  }
+
+
+textarea .editor {
   height: 500px;
   width: 400px;
   color: black;
 }
 
-#mainLogo {
-  img {
-    @include alignSelf(center);
-    @include margin(0, auto);
-    height: auto;
-    width: 320px;
-    max-width: 320px;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-    @media screen and (max-width: 320px) {
-      width: 50%;
-    }
 
-  }
+.site-logo{
+  @include alignSelf(center);
+  @include margin(0, auto);
+  height: auto;
+  max-width: 700px;
+  width: 640px;
+}
+.title{
+  font-size: 4rem;
+}
+
+
+.index-wrapper.mainStore{
+ margin: 0 4rem;
+}
+
+.space-bar-fill{
+  padding: 7.5em;
+  background-color: $true-black;
+  width: 100vw;
+  margin-top: -10px;
 }
 

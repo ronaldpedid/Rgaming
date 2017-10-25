@@ -1,14 +1,19 @@
 const express = require('express');
 const router = express.Router();
+const Article = require('../lib/models/Article.js');
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  let links = ["http://google.com"];
-
-  res.render('index', {
-      title: 'Ren Gaming',
-      color: 'Red',
-      data: links[0]});
+router.get('/', function (req, res, next) {
+    Article.find({}, function (err, article) {
+        if (err) {
+            console.log('err');
+            res.send('Sorry something went wrong. Please try again.')
+        } else {
+            res.render('index', {
+                articles: article
+            });
+        }
+    }).sort({title:1}).limit(5);
 });
-
 module.exports = router;
