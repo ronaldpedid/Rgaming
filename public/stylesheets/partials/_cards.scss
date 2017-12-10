@@ -48,3 +48,33 @@
   }
 
 }
+
+.info-container{
+  margin: 0 auto;
+  padding: 3rem;
+  font-size: 26px;
+  text-align: left;
+  & h1{
+    font-weight: 600;
+  }
+  & h3{
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+  }
+  @media (max-width: 767px){
+    padding: 2rem;
+    font-size: 22px;
+    text-align: left;
+  }
+}
+
+.howto-sample{
+  @extend #metaTags;
+  margin: 1rem 0;
+}
+
+span.bold{
+  @media (max-width: 320px){
+    margin-top: 1em;
+  }
+}

@@ -14,6 +14,6 @@ router.get('/', function (req, res, next) {
                 articles: article
             });
         }
-    }).sort({title:1}).limit(5);
+    }).sort({createdAt:-1}).limit(5);
 });
 module.exports = router;

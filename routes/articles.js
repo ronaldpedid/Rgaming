@@ -3,23 +3,23 @@ const router = express.Router();
 const Article = require('../lib/models/Article.js');
 
 
-//show articles index
+//show newsletter index
 router.get('/', function (req, res, next) {
     Article.find({}, function (err, article) {
         if (err) {
             console.log(err)
         } else {
-            res.render('articles/index', {
+            res.render('newsletter/index', {
                 articles: article,
                 test: "Hello Test"
             });
         }
-    }).sort({title:-1}).limit(5);
+    }).sort({createdAt:-1}).limit(5);
 });
 //show page to create a new article post
 router.get('/create', function (req, res, next) {
     let article = new Article();
-    res.render('articles/edit', {
+    res.render('newsletter/edit', {
         articles: article,
         success: req.session.success,
         errors: req.session.errors
@@ -33,7 +33,7 @@ router.get('/:id', function (req, res) {
         if (err) {
             throw err;
         }
-        res.render('articles/article',
+        res.render('newsletter/article',
             {article: article}
         );
     });
@@ -43,7 +43,7 @@ router.get('/:id', function (req, res) {
 //Form post to create a new article
 router.post('/', function (req, res, next) {
     Article.create(req.body, function (err, article) {
-        res.redirect('/articles/create');
+        res.redirect('/newsletter/create');
     });
 });
 
@@ -54,10 +54,10 @@ router.get('/:id/edit', function (req, res, next) {
             throw err
         }
         console.log(article);
-        res.render('articles/edit', {
-            action: '/articles/' + article.id + '?_method=PUT',
+        res.render('newsletter/edit', {
+            action: '/newsletter/' + article.id + '?_method=PUT',
             article: article,
-            deleteAction: '/articles/' + article.id + '?_method=DELETE'
+            deleteAction: '/newsletter/' + article.id + '?_method=DELETE'
         });
     });
 });
@@ -70,7 +70,7 @@ router.put('/:id', function (req, res) {
             if (err) {
                 throw err;
             }
-            res.redirect('/articles/' + article.id)
+            res.redirect('/newsletter/' + article.id)
         });
 });
 
@@ -83,7 +83,7 @@ router.delete("/:id", function(req, res) {
             }
         }, function(err, comments) {
             req.flash('error', article.title + ' deleted!');
-            res.redirect('/articles');
+            res.redirect('/newsletter');
         })
     });
 });

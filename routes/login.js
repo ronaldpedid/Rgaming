@@ -1,13 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../lib/models/User');
-var passport = require('passport');
+const express = require('express');
+const router = express.Router();
+const User = require('../lib/models/User');
+const passport = require('passport');
 
 router.get('/', function (req, res, next) {
     if (req.user) {
         res.redirect('/');
     } else {
-        res.render('login');
+        res.render('login', {
+            success: false,
+            errors: req.session.errors
+        });
     }
 });
 

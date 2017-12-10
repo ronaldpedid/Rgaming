@@ -1,29 +1,28 @@
-function initializeApp(db) {
+function initializeApp() {
     const express = require('express');
     const path = require('path');
     const favicon = require('serve-favicon');
     const logger = require('morgan');
     const cookieParser = require('cookie-parser');
     const bodyParser = require('body-parser');
-    const mongoMiddleware = require('./middleware/mongo');
     const methodOverride = require('method-override');
+    const expressValidator = require('express-validator');
     const session = require('express-session');
     const MongoStore = require('connect-mongo')(session);
-    const setUserOnLocalsMiddleware = require('./middleware/user-local');
     const promise = require('promise');
     const LocalStrategy = require('passport-local').Strategy;
+    const handlebars = require('handlebars');
     const expressHandlebars = require('express-handlebars');
     const User = require('./lib/models/User');
-    const Article= require('./lib/models/Article');
+    const Article = require('./lib/models/Article');
     const Comment = require('./lib/models/Comment');
     const passport = require('passport');
     const config = require('./config');
-    const creds = require('./config');
     const secret = "Nibbieamylodgiduke2";
     const flash = require('express-flash');
     const bluebird = require('bluebird');
-    const htmlparser = require('htmlparser2');
-    const seedDB = require("./seeds");
+    const HBSlayouts = require('handlebars-layouts');
+    HBSlayouts.register(handlebars);
 
     //routes
     const index = require('./routes/index');
@@ -32,21 +31,17 @@ function initializeApp(db) {
     const login = require('./routes/login');
     const logout = require('./routes/logout');
     const register = require('./routes/register');
-    const articles = require('./routes/articles');
+    const newsletter = require('./routes/articles');
     const comment = require('./routes/comments');
     const product = require('./routes/products');
+    const credits = require('./routes/credits');
+    const contact = require('./routes/contact');
+    const howto = require('./routes/how');
+    const tos = require('./routes/tos');
+    const privacy = require('./routes/privacy');
+    const returns = require('./routes/return');
 
     const app = express();
-    app.db = db;
-
-    // seedDB();
-//check connection
-    db.once('open', function () {
-        console.log('Connected to Mongo DB')
-    });
-    db.on('error', function (err) {
-        console.log(err)
-    });
 
     passport.use(new LocalStrategy({
             usernameField: 'username',
@@ -133,8 +128,8 @@ function initializeApp(db) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(cookieParser());
+    app.use(expressValidator());
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(mongoMiddleware(config.mongo));
     app.use(session({
         store: new MongoStore({url: config.mongo.connectionString}),
         secret: secret,
@@ -142,10 +137,9 @@ function initializeApp(db) {
         resave: false,
         saveUninitialized: false
     }));
-    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(setUserOnLocalsMiddleware());
+    app.use(flash());
     const authRouter = express.Router();
     authRouter.use(function (req, res, next) {
         if (req.isAuthenticated()) {
@@ -155,16 +149,22 @@ function initializeApp(db) {
     });
 
     app.use('/', index);
-    app.use('/forgot', forgot);
-    app.use('/users', users);
-    app.use('/login', login);
-    app.use('/register', register);
-    app.use('/articles', articles);
-    app.use('/articles/create', articles);
-    app.use('/articles/:id/comments', comment);
+    app.use('/forgot/', forgot);
+    app.use('/users/', users);
+    app.use('/login/', login);
+    app.use('/register/', register);
+    app.use('/newsletter/', newsletter);
+    app.use('/newsletter/:id', newsletter);
+    app.use('/newsletter/create', newsletter);
+    app.use('/newsletter/:id/comments', comment);
     app.use('/product/', product);
-    authRouter.use('/logout', logout);
-    app.use(authRouter);
+    app.use('/credits/', credits);
+    app.use('/contact/', contact);
+    app.use('/howto/', howto);
+    app.use('/tos/', tos);
+    app.use('/privacy/', privacy);
+    app.use('/return/', returns);
+    app.use('/logout', logout);
 
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {

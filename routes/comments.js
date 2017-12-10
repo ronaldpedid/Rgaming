@@ -24,7 +24,7 @@ router.post("/",middleware.isLoggedIn,function(req, res){
         if(err){
             console.log(err);
             req.flash('error', 'Opps, something went wrong!');
-            res.redirect("/articles");
+            res.redirect("/newsletter");
         } else {
             Comment.create(req.body.comment, function(err, comment){
                 if(err){
@@ -42,7 +42,7 @@ router.post("/",middleware.isLoggedIn,function(req, res){
                     article.save();
                     console.log(comment);
                     req.flash('success', 'Created a comment!');
-                    res.redirect('/articles/' + article._id);
+                    res.redirect('/newsletter/' + article._id);
                 }
             });
         }
@@ -66,7 +66,7 @@ router.put("/:commentId", function(req, res){
             console.log(err);
             res.render("edit");
         } else {
-            res.redirect("/articles/" + req.params.id);
+            res.redirect("/newsletter/" + req.params.id);
         }
     });
 });
@@ -85,7 +85,7 @@ router.delete("/:commentId",middleware.checkUserComment, function(req, res){
                     console.log(err)
                 } else {
                     req.flash('error', 'Comment deleted!');
-                    res.redirect("/articles/" + req.params.id);
+                    res.redirect("/newsletter/" + req.params.id);
                 }
             });
         }

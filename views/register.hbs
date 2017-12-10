@@ -1,4 +1,15 @@
 <h1>Please register to edit the site.</h1>
+{{#if success}}
+    <section class="success">
+        <h2>Success!</h2>
+    </section>
+{{ else }}
+    {{# if errors}}
+        {{#each errors}}
+            <li>{{this.msg}}</li>
+        {{/each}}
+    {{/if}}
+{{/if}}
 <div class="flex col">
     <form action="/register" method="POST">
         <div>
@@ -19,14 +30,17 @@
             <label class="center">Password</label>
             <input type="password" name="password" value="" placeholder="Your password"/>
         </div>
+        <div>
+            <label for="confirmPassword" class="center">Confirm Password</label>
+            <input type="password" name="confirmPassword" value="" placeholder="Your password"/>
+        </div>
 
         <div>
             <label for="email" class="center">email</label>
             <input type="email" name="email" value="" placeholder="email address"/>
         </div>
-
+        <input class="btn margin-twenty" type="submit" value="register"/>
+    </form>
 </div>
-<input class="btn margin-twenty" type="submit" value="register"/>
-</form>
 </div>
 

@@ -13,6 +13,16 @@
 
 }
 
+//same as row just with a top margin of 1 em.
+.row2{
+  @extend .row;
+  margin-top: 1em;
+}
+
+.col2{
+  @extend .col;
+  margin-top: 1em;
+}
 .justify-c {
   @include justify(center);
 }
@@ -29,6 +39,32 @@
   @include alignSelf(center);
 }
 
+.alignSelf-fe{
+  @include alignSelf(flex-end);
+}
+
+.alignSelf-st{
+  @include alignSelf(flex-start);
+}
+
+
+.alignSelf-sb{
+  @include alignSelf(space-between);
+}
+
 .mar-center{
   @include margin(0, auto);
+}
+
+
+.space-around{
+  justify-content: center;
+}
+
+.space-between{
+  justify-content: space-between;
+}
+
+.prod-desc{
+  font-weight: 700;
 }

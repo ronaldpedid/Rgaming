@@ -1,0 +1,14 @@
+<h1>RGS Newsletters</h1>
+<div class="flex col">
+        {{#each articles as |article|}}
+            {{#with article }}
+                <div class="card-wrapper-sm flex col wrap">
+                    <h1>{{title}}</h1>
+                    <h3>{{author}}</h3>
+                    <span>{{{formatBlurb body}}} <a href="/newsletter/{{id}}">read more</a></span>
+                </div>
+            {{/with}}
+        {{/each}}
+
+</div>
+

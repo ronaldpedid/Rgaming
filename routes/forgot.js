@@ -9,7 +9,10 @@ const crypto = require('crypto');
 
 //reset password
 router.get('/', function(req, res){
-    res.render('forgot');
+    res.render('forgot',{
+            success: false,
+            errors: req.session.errors
+        });
 });
 
 router.post('/', function(req,res,next){
@@ -92,7 +95,8 @@ router.post('/reset/:token', function(req, res){
                 user.setPassword(req.body.password, function(err){
                     user.resetPasswordToken = undefined;
                     user.resetPasswordExpires = undefined;
-                    
+
+                    req.check('password', 'Password is invalid' );
                     user.save(function(err){
                         req.logIn(user, function(err){
                             done(err, user);

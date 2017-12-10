@@ -1,0 +1,71 @@
+<h1>create this page // new articles</h1>
+
+<section class="flex col">
+<form class="justify-c" action="{{action}}" method="POST">
+    {{#if success}}
+        <section id="valAlertSuccess" class="success pos-abs-center">
+            <button id="closeValSuccess" class="closepu" type="button">[X]</button>
+            <h2>Masterfully Done!</h2>
+        </section>
+    {{else}}
+        {{#if errors}}
+            <section id="valAlertError" class="errors pos-abs-center">
+                <button id="closeValAlertError" class="closepu" type="button">[X]</button>
+                <ul>
+                    {{#each errors }}
+                        <li>{{this.msg}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+        {{/if}}
+    {{/if}}
+    {{#if articles}}
+
+        <section class="flex col justify-c mar-center">
+            <div class="flex col">
+                <label for="Title">
+                </label>
+                <input class="flex alignSelf-c center" id="field" name="title"
+                       value="{{title}}" placeholder="TITLE OF THE ARTICLE" type="text">
+                <label for="author"></label>
+                <input class="flex alignSelf-c" id="field" name="author"
+                       value="{{author}}" placeholder="AUTHOR OF THE ARTICLE" type="text">
+                <label for="body">
+                </label>
+                <textarea class="tinymce" id="" name="body"
+                          placeholder="Begin Writing">{{body}}</textarea></div>
+        </section>
+
+        <button class="flex alignSelf-c" type="submit" value="">Send</button>
+        <button class="flex alignSelf-c" type="reset">Reset</button>
+    </form>
+        <form action="{{ deleteAction }}" method="POST">
+            <button class="subbutton delete flex center margin-twenty-top" type="submit">Delete Post</button>
+        </form>
+
+
+    {{/if}}
+    {{#unless articles}}
+        <section class="flex col justify-c mar-center">
+            <div class="flex col">
+                <label for="Title">
+                </label>
+                <input class="flex alignSelf-c center" id="field" name="title"
+                       value="{{title}}" placeholder="TITLE OF THE ARTICLE" type="text">
+                <label for="author"></label>
+                <input class="flex alignSelf-c" id="field" name="author"
+                       value="{{author}}" placeholder="AUTHOR OF THE ARTICLE" type="text">
+                <label for="body">
+                </label>
+                <textarea class="tinymce" id="" name="body"
+                          placeholder="Begin Writing">{{body}}</textarea></div>
+        </section>
+
+        <button class="flex alignSelf-c" type="submit" value="">Send</button>
+        <button class="flex alignSelf-c" type="reset">Reset</button>
+        </form>
+        <form action="{{ deleteAction }}" method="POST">
+            <button class="subbutton delete flex center margin-twenty-top" type="submit">Delete Post</button>
+        </form>
+    {{/unless}}
+</section>

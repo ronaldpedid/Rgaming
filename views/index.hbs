@@ -1,46 +1,283 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<p>{{color}}</p>
-<p><a href="{{data}}" target="_blank">google</a></p>
+<div class="flex justify-c col main-logo-bg center-text black-bg">
+    <img class="site-logo" src="/images/logos/RGS_logo-main.png" height="200" width="500"/>
+</div>
+<section class="index-wrapper">
+    <div class="nav-container main-logo-bg black-bg">
+        <div id="metaTags" class="flex col justify-c">
+            <div class="flex row justify-c">
+                <button id="rgFeaturedBtn">Merchant</button>
+                <button id="rgDiceBtn">Dice / Bags</button>
+                <button id="rgSleevesBtn">Sleeves</button>
+                <button id="rgDeckBoxBtn">Deck Boxes</button>
+                <button id="rgComSupBtn">Comic Supplies</button>
 
-{{#if user.isAdmin}}
-    <h1>{{user.username}} is the admin!</h1>
-    <h3>{{user.email}} is actually pickle rick!</h3>
-    <h3>only logged in users can see whats in between these tags.</h3>
-{{/if}}
-
-<!-- SHOPROCKET SR-BLOCK START -->
-<div class="sr-block sr-default" sr-meta="hero" sr-show-max="5" style="visibility: hidden;">
-    <div class="sr-item sr-buy-widget sr-small">
-        <div class="sr-image-holder">
-            <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image" title="[NAME]" alt="[NAME]"/>
+            </div>
+            <div class="flex row2 justify-c">
+                <button id="rgComBtn">Comics</button>
+                <button id="rgBGamesBtn">Board Games</button>
+                <button id="rgDropBtn" class="hide">Supply Drops</button>
+                <button id="rgMiniBtn">Miniatures</button>
+                <button id="rgFullBtn">Full Inventory</button>
+            </div>
         </div>
-        <div class="sr-product-details">
-            <div class="sr-name">[NAME]</div>
-            <div class="sr-strapline">[STRAPLINE] </div>
-            <div class="sr-price">[CURRENCY][PRICE]</div>
-            <a class="sr-add-link" href="[ADDTOCART]" type="button">
-                <div class="sr-add"><i class="fa fa-shopping-cart"></i> Buy Now</div>
-            </a>
+        <div class="site-filter">
+            <input type="text" class="searchInput center-text" id="siteFilter" onkeyup="filterItems()"
+                   placeholder="| Mystical Item Sifter"/>
         </div>
     </div>
-</div>
-<!-- SHOPROCKET END -->
-
-<!-- SHOPROCKET SR-BLOCK START -->
-<div class="sr-block sr-default" sr-meta="card" sr-show-max="99" style="visibility: hidden;">
-    <div class="sr-item sr-buy-widget sr-small">
-        <div class="sr-image-holder">
-            <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image" title="[NAME]" alt="[NAME]"/>
+    <div class="nav-container-mobile main-logo-bg black-bg">
+        <div id="metaTags" class="flex col justify-c">
+            <button id="navDropDown" class="flex row justify-c">Menu</button>
+            <div id="navList" class="flex col justify-c hide">
+                <button id="rgFeaturedBtnM">Merchant</button>
+                <button id="rgDiceBtnM">Dice / Bags</button>
+                <button id="rgSleevesBtnM">Sleeves</button>
+                <button id="rgDeckBoxBtnM">Deck Boxes</button>
+                <button id="rgComSupBtnM">Comic Supplies</button>
+                <button id="rgComBtnM">Comics</button>
+                <button id="rgBGamesBtnM">Board Games</button>
+                <button id="rgDropBtnM" class="hide">Supply Drops</button>
+                <button id="rgMiniBtnM">Miniatures</button>
+                <button id="rgFullBtnM">Full Inventory</button>
+            </div>
         </div>
-        <div class="sr-product-details">
-            <div class="sr-name">[NAME]</div>
-            <div class="sr-strapline">[STRAPLINE] </div>
-            <div class="sr-price">[CURRENCY][PRICE]</div>
-            <a class="sr-add-link" href="[ADDTOCART]" type="button">
-                <div class="sr-add"><i class="fa fa-shopping-cart"></i> Buy Now</div>
-            </a>
+        <div class="site-filter">
+            <input type="text" class="searchInput center-text" id="siteFilter1" onkeyup="filterItems1()"
+                   placeholder="Mystical Item Sifter"/>
         </div>
     </div>
-</div>
-<!-- SHOPROCKET END -->
+    <div class="mainStore">
+        <!-- SHOPROCKET SR-BLOCK START -->
+        <section id="rgFeatured">
+            <h1 id="lore" class="flex row justify-c merchant hide">A dark figure approaches.</h1>
+            <h2 id="lore1" class="flex row justify-c merchant spacer hide"><em>It seems to be peddling wares and offers you a
+                look. You can hear it mutter a sentence, but can only
+                make out the words "new" and "monthly".</em></h2>
+            <div class="sr-block sr-default flex row justify-c st-spacer" sr-meta="Hero" sr-show-max="99"
+                 style="visibility: hidden;">
+
+                <div class="sr-item sr-buy-widget sr-small">
+
+                    <div class="sr-product-details">
+                        <a href="/product#!/[SLUG]">
+                            <div class="sr-image-holder sr-abs">
+                                <img class="sr-plus" src="/images/svg/RGS-plusbutton.svg" alt="+">
+                                <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image"
+                                     title="[NAME]"
+                                     alt="[NAME]"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex col prod-border">
+                        <div class="flex row center justify-c">
+                            <div class="sr-price price-size quantity-helper">[CURRENCY][PRICE]</div>
+                            <div class="sr-quantity alignSelf-c left-color">&nbsp; &nbsp; &nbsp;[QUANTITY]</div>
+                            <div class="uppercase alignSelf-c left-color">&nbsp; left</div>
+                        </div>
+                        <div>
+                            <div class="sr-name name-size">[NAME]</div>
+                            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                                <div class="sr-add uppercase"><i class="fa fa-shopping-cart"></i> Add to cart</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="rgDice" class="hide">
+            <h1 class="flex row justify-c spacer">Score a critical hit!</h1>
+            <div class="sr-block sr-default flex row justify-c" sr-meta="dice" sr-show-max="99"
+                 style="visibility: hidden;">
+                <div class="sr-item sr-buy-widget sr-small">
+                    <div class="sr-product-details">
+                        <a href="/product#!/[SLUG]">
+                            <div class="sr-image-holder">
+                                <img class="sr-plus" src="/images/svg/RGS-plusbutton.svg" alt="+">
+                                <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image"
+                                     title="[NAME]"
+                                     alt="[NAME]"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex col prod-border">
+                        <div class="flex row center justify-c">
+                            <div class="sr-price price-size quantity-helper">[CURRENCY][PRICE]</div>
+                            <div class="sr-quantity alignSelf-c left-color">&nbsp; &nbsp; &nbsp;[QUANTITY]</div>
+                            <div class="uppercase alignSelf-c left-color">&nbsp; left</div>
+                        </div>
+                        <div>
+                            <div class="sr-name name-size">[NAME]</div>
+                            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                                <div class="sr-add uppercase"><i class="fa fa-shopping-cart"></i> Add to cart</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rgDeckBox" class="hide">
+            <h1 class="flex row justify-c spacer">Cast foritfy armor!</h1>
+            <div class="sr-block sr-default flex row justify-c" sr-meta="deckbox" sr-show-max="99"
+                 style="visibility: hidden;">
+                <div class="sr-item sr-buy-widget sr-small">
+                    <div class="sr-product-details">
+                        <a href="/product#!/[SLUG]">
+                            <div class="sr-image-holder">
+                                <img class="sr-plus" src="/images/svg/RGS-plusbutton.svg" alt="+">
+                                <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image"
+                                     title="[NAME]"
+                                     alt="[NAME]"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex col prod-border">
+                        <div class="flex row center justify-c">
+                            <div class="sr-price price-size quantity-helper">[CURRENCY][PRICE]</div>
+                            <div class="sr-quantity alignSelf-c left-color">&nbsp; &nbsp; &nbsp;[QUANTITY]</div>
+                            <div class="uppercase alignSelf-c left-color">&nbsp; left</div>
+                        </div>
+                        <div>
+                            <div class="sr-name name-size">[NAME]</div>
+                            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                                <div class="sr-add uppercase"><i class="fa fa-shopping-cart"></i> Add to cart</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="rgSleeves" class="hide">
+            <h1 class="flex row justify-c spacer">Vigilant protectors.</h1>
+            <div class="sr-block sr-default flex row justify-c" sr-meta="sleeves" sr-show-max="99"
+                 style="visibility: hidden;">
+                <div class="sr-item sr-buy-widget sr-small">
+                    <div class="sr-product-details">
+                        <a href="/product#!/[SLUG]">
+                            <div class="sr-image-holder">
+                                <img class="sr-plus" src="/images/svg/RGS-plusbutton.svg" alt="+">
+                                <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image"
+                                     title="[NAME]"
+                                     alt="[NAME]"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex col prod-border">
+                        <div class="flex row center justify-c">
+                            <div class="sr-price price-size quantity-helper">[CURRENCY][PRICE]</div>
+                            <div class="sr-quantity alignSelf-c left-color">&nbsp; &nbsp; &nbsp;[QUANTITY]</div>
+                            <div class="uppercase alignSelf-c left-color">&nbsp; left</div>
+                        </div>
+                        <div>
+                            <div class="sr-name name-size">[NAME]</div>
+                            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                                <div class="sr-add uppercase"><i class="fa fa-shopping-cart"></i> Add to cart</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="rgComSup" class="hide">
+            <h1 class="flex row justify-c spacer">Utility belt activate!</h1>
+            <div class="sr-block sr-default flex row justify-c" sr-meta="comic supplies" sr-show-max="99"
+                 style="visibility: hidden;">
+                <div class="sr-item sr-buy-widget sr-small">
+                    <div class="sr-product-details">
+                        <a href="/product#!/[SLUG]">
+                            <div class="sr-image-holder">
+                                <img class="sr-plus" src="/images/svg/RGS-plusbutton.svg" alt="+">
+                                <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image"
+                                     title="[NAME]"
+                                     alt="[NAME]"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex col prod-border">
+                        <div class="flex row center justify-c">
+                            <div class="sr-price price-size quantity-helper">[CURRENCY][PRICE]</div>
+                            <div class="sr-quantity alignSelf-c left-color">&nbsp; &nbsp; &nbsp;[QUANTITY]</div>
+                            <div class="uppercase alignSelf-c left-color">&nbsp; left</div>
+                        </div>
+                        <div>
+                            <div class="sr-name name-size">[NAME]</div>
+                            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                                <div class="sr-add uppercase"><i class="fa fa-shopping-cart"></i> Add to cart</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="rgFull" class="hide">
+            <h1 class="flex row justify-c spacer">You are now under the effects of true sight.</h1>
+            <div class="sr-block sr-default flex row justify-c" sr-meta="" sr-show-max="1000"
+                 style="visibility: hidden;">
+                <div class="sr-item sr-buy-widget sr-small">
+                    <div class="sr-product-details">
+                        <a href="/product#!/[SLUG]">
+                            <div class="sr-image-holder">
+                                <img class="sr-plus" src="/images/svg/RGS-plusbutton.svg" alt="+">
+
+                                <img src="[IMAGESRC]/convert?w=460&h=460&fit=max&quality=100" class="sr-image"
+                                     title="[NAME]"
+                                     alt="[NAME]"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex col prod-border">
+                        <div class="flex row center justify-c">
+                            <div class="sr-price price-size quantity-helper">[CURRENCY][PRICE]</div>
+                            <div class="sr-quantity alignSelf-c left-color">&nbsp; &nbsp; &nbsp;[QUANTITY]</div>
+                            <div class="uppercase alignSelf-c left-color">&nbsp; left</div>
+                        </div>
+                        <div>
+                            <div class="sr-name name-size">[NAME]</div>
+                            <a class="sr-add-link" href="[ADDTOCART]" type="button">
+                                <div class="sr-add uppercase"><i class="fa fa-shopping-cart"></i> Add to cart</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rgComics" class="hide">
+            <div class="flex row justify-c">
+                <img class="prod-coming-soon" src="/images/RGS-ProductComingSoon.jpg" alt="productComingSoon">
+            </div>
+        </section>
+
+        <section id="rgBoardGames" class="hide">
+            <div class="flex row justify-c">
+                <img class="prod-coming-soon" src="/images/RGS-ProductComingSoon.jpg" alt="productComingSoon">
+            </div>
+        </section>
+
+        <section id="rgDrop" class="hide">
+            <div class="flex row justify-c">
+                <img class="prod-coming-soon" src="/images/RGS-ProductComingSoon.jpg" alt="productComingSoon">
+            </div>
+        </section>
+
+        <section id="rgMini" class="hide">
+            <div class="flex row justify-c">
+                <img class="prod-coming-soon" src="/images/RGS-ProductComingSoon.jpg" alt="productComingSoon">
+            </div>
+        </section>
+        <!-- SHOPROCKET END -->
+    </div>
+    <!-- SHOPROCKET END -->
+</section>
+
+
+

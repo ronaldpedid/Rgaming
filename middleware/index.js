@@ -16,7 +16,7 @@ module.exports = {
                 } else {
                     req.flash("error", "You don't have permission to do that!");
                     console.log("BADD!!!");
-                    res.redirect("/articles/" + req.params.id);
+                    res.redirect("/newsletter/" + req.params.id);
                 }
             });
         } else {
