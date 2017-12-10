@@ -5,7 +5,7 @@
  */
 
 var initializeApp = require('../app');
-var debug = require('debug')('cgtc:server');
+var debug = require('debug')('rg:server');
 var http = require('http');
 
 

@@ -1,0 +1,29 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<header class="blacktop flex col">
+    <img class="site-logo" src="/images/logos/RGS_logo-main.png" height="200" width="500"/>
+    <a href="/" class="back-btn uppercase flex row2 justify-c alignSelf-c">Go back to exploring</a>
+</header>
+<section class="contact">
+    <h1 class="center-text">Send us a raven.</h1>
+
+    <form class="flex col" action="action" method="post">
+        <label for="name"></label>
+        <input class="contact-input" type="text" placeholder="Name">
+        <label for="email"></label>
+        <input class="contact-input"  type="email" placeholder="E-Mail Address">
+        <textarea name="comment" id="contactComment" cols="30" rows="13" placeholder="Submit feedback about the site, or just tell how you're feeling."></textarea>
+        <div class="g-recaptcha flex justify-c" data-sitekey="6Lf89ToUAAAAAL7-4csF61vzmCimRWAUl-m_sJjW" data-theme="light"></div>
+        <button class="contact-button bold uppercase center-text" type="submit">Send</button>
+    </form>
+
+    <div class="flex row justify-c alignSelf-c contact-info center-text">
+        <div class="flex col contact-card uppercase">
+            <h4 class="bold">Location</h4>
+            <h5>Castle Rock, Colorado</h5>
+        </div>
+        <div class="flex col contact-card uppercase">
+            <h4 class="bold">Phone Number</h4>
+            <h5><a href="tel:7206569683">720-656-9683</a></h5>
+        </div>
+    </div>
+</section>

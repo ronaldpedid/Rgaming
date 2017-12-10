@@ -1,25 +1,111 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-  {{#if messages.success}}
-      <div>{{ messages.success }}</div>
-  {{/if}}
-  {{#if deleteaction.success}}
-      <div>{{ deleteaction.success }}</div>
-  {{/if}}
-  {{#if post.success}}
-      <div>{{ post.success }}</div>
-  {{/if}}
-  {{#if user}}
-      <div class="userinfo">
-          <span class="username">Welcome, {{user.username}}</span>
-          <a class="userlink" href="/logout">Logout</a>
-      </div>
-  {{/if}}
-    {{{body}}}
-  </body>
+    <link rel='stylesheet' href='/stylesheets/css/application.css'/>
+    <link rel='stylesheet' href='/stylesheets/css/jquery-te-1.4.0.css'/>
+    <link rel='stylesheet' href='/stylesheets/animate.css'/>
+    <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Glegoo" rel="stylesheet">
+    <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1">
+</head>
+<body class="store">
+{{#if messages.success}}
+    <div class="flash-box success">{{ messages.success }}</div>
+{{/if}}
+{{#if deleteaction.success}}
+    <div class="flash-box success">{{ deleteaction.success }}</div>
+{{/if}}
+{{#if post.success}}
+    <div>{{ post.success }}</div>
+{{/if}}
+{{#if message.failure}}
+    <div>{{ message.failure }}</div>
+{{/if}}
+{{#if message.error}}
+    <div class="flash-box error">{{ message.error }}</div>
+{{/if}}
+{{#if user}}
+    <div class="userinfo main-logo-bg">
+        <span class="username">Welcome, {{user.username}}</span>
+        <a class="userlink" href="/logout">Logout</a>
+    </div>
+{{/if}}
+<div class="sr-basket-override">
+    <div id="sr-basket-widget" class="sr-right sr-override"><span class="sr-confirm-amount"></span></div>
+</div>
+{{{body}}}
+<footer class="footer flex col justify-c">
+    <div class="flex row2 space-around">
+        <div class="flex col">
+            <h3>Site Menu</h3>
+            <h6><a href="/tos">Terms of Service</a></h6>
+            <h6><a href="/privacy">Privacy Policy</a></h6>
+            <h6><a href="/return">Return Policy</a></h6>
+            <h6><a href="/contact">Contact Us</a></h6>
+            <h6><a href="/credits">Site Credits</a></h6>
+        </div>
+        <div class="flex col rgs-ftr-icons">
+            <h3 class="center-text">Like. Follow. Roll. Draw. Share.</h3>
+            <div class="flex row justify-c social-row">
+                <a href="https://twitter.com/RenGamesCo" target="_blank"><img class="social-icon" src="/images/icons/Twitter_Social_Icon_Rounded_Square_Color.png" alt="twitter"></a>
+                <img class="social-icon hide" src="/images/svg/001-youtube.svg" alt="twitter">
+                <img class="social-icon hide" src="/images/icons/snap-ghost-yellow.png" alt="twitter">
+                <a href="https://www.facebook.com/RGamesCo/" target="_blank"><img class="social-icon" src="/images/icons/FB-f-Logo__blue_50.png" alt="Facebook Group"></a>
+            </div>
+        </div>
+        <div class="flex col">
+            <h3>Site Menu II</h3>
+            <h6><a href="#top">Back to top</a></h6>
+            <h6><a href="/">Back to store</a></h6>
+            <h6><a href="/howto">Using the site</a></h6>
+            <h6><a href="/login">Newsletter</a></h6>
+            <h6><a href="/login">Advertise with us!</a></h6>
+        </div>
+    </div>
+    <h4 class="flex justify-c footer-copy-spacer">&copy;Copyright 2017 Renaissance Game Supply. All Rights Reserved.</h4>
+</footer>
+<!-- S C R I P T S -->
+{{#block "scripts"}}
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <script src="/javascripts/shop.js"></script>
+    <!--<script src="/javascripts/alert.js"></script>-->
+    <script src="/javascripts/plugin/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="/javascripts/plugin/tinymce/js/tinymce/init-tinymce.js"></script>
+    <script src="/javascripts/jquery-te-1.4.0.min.js"></script>
+    <!-- Shoprocket JavaScript -->
+    <!-- jQuery -->
+    <!-- Shoprocket JavaScript -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- Shoprocket JavaScript -->
+    <script>var $ = jQuery.noConflict();</script>
+    <script>var JSR = jQuery;</script>
+    <script language="javascript" src="https://space.shoprocket.co/frontend/v8/sr.min.js"></script>
+    <input type="hidden" name="sr-companyid" id="sr-companyid" value="12927">
+
+<!-- ReCaptcha -->
+    <script type="text/javascript">
+        var onloadCallback = function() {
+            alert("grecaptcha is ready!");
+        };
+    </script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110960048-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-110960048-1');
+    </script>
+
+{{/block}}
+</body>
 </html>

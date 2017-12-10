@@ -1,0 +1,182 @@
+.nav-container {
+  padding: 3.5em 0 0 0;
+  width: 100%;
+  margin-top: -25px;
+  @media(max-width: 600px) {
+    display: none;
+  }
+  @media(min-width: 601px) {
+    display: block;
+  }
+}
+
+.nav-container-mobile {
+  @extend .nav-container;
+  @media(max-width: 600px) {
+    display: block;
+  }
+  @media(min-width: 601px) {
+    display: none;
+  }
+}
+
+#metaTags {
+  @media(max-width: 425px) {
+    display: block;
+  }
+  &:focus {
+    outline: 0;
+  }
+  @media(max-width: 720px) {
+    margin: 0 1em;
+    font-size: smaller;
+  }
+
+}
+
+#metaTags button {
+  padding: 0.5rem 1.5rem;
+  margin: 0 0.25rem;
+  color: $site-color-red;
+  background-color: $site-color-offWhite1;
+  border-radius: .5rem;
+  border: 3px solid $site-color-offWhite2;
+  border-bottom: 5px solid $site-color-offWhite2;
+  font-weight: 900;
+  font-size: 1rem;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $site-color-red;
+    cursor: pointer;
+    color: #fff;
+    border-color: #fff;
+  }
+  &:focus {
+    background-color: $site-color-red;
+    color: $true-white;
+    border-color: $true-white;
+    outline: none;
+  }
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+  @media (max-width: 600px) {
+    border-color: $true-white;
+    background-color: $search-color-red;
+    color: $true-white;
+    outline: none;
+    font-size: 18px
+  }
+}
+
+#rgFeaturedBtn,
+#rgDiceBtn,
+#rgSleevesBtn,
+#rgDeckBoxBtn,
+#rgComSupBtn,
+#rgComBtn,
+#rgBGamesBtn {
+  @extend #metaTags;
+  h1 {
+    @media(max-width: 320px) {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+}
+
+.blacktop {
+  height: auto;
+  width: 100%;
+  background-color: $site-color-offBlack;
+  margin-bottom: 1em;
+  @media(max-width: 949px) {
+
+  }
+}
+
+.back-btn {
+  padding: 1em;
+  color: $site-color-red;
+  background-color: $true-white;
+  margin: 1rem auto 1rem auto;
+  border-radius: .5rem;
+  border: 3px solid $site-color-offWhite2;
+  border-bottom: 5px solid $site-color-offWhite2;
+  font-weight: 900;
+  @media(max-width: 1024px) {
+    font-size: smaller;
+  }
+}
+
+.nav-btn {
+  @extend .back-btn;
+
+}
+
+.black-bg {
+  background-color: $true-black;
+}
+
+.site-filter {
+  width: 100%;
+  margin-left: -1;
+}
+
+.searchInput {
+  width: 100%;
+}
+
+input#siteFilter {
+  padding: 2rem 0;
+  font-size: 36px;
+  background-color: $site-color-medBlack;
+  border: none;
+  color: $site-color-offWhite1;
+  text-transform: uppercase;
+  margin-top: 1em;
+  font-family: 'Glegoo', serif;
+  &:focus {
+    border-color: $true-black;
+    background-color: $search-color-red;
+    color: $true-white;
+    outline: none;
+  }
+  &::placeholder {
+    color: $true-white;
+    justify-content: center;
+    &:focus {
+      color: inherit;
+    }
+  }
+  @media (max-width: 767px) {
+    &::placeholder {
+      color: $true-white;
+      background: none;
+      justify-content: center;
+    }
+  }
+  @media(max-width: 425px) {
+    font-size: 28px;
+  }
+  @media(max-width: 320px) {
+    font-size: 28px;
+    &::placeholder {
+      color: $true-white;
+      background: none;
+      justify-content: center;
+      &:focus {
+        color: $search-color-red;
+      }
+    }
+
+  }
+}
+
+  input#siteFilter1 {
+    @extend #siteFilter;
+
+  }
+  .hide {
+    display: none;
+  }

@@ -1,32 +1,44 @@
-
-
-//functions
-@function fluidize($target, $context) {
-  @return ($target / $context * 100);
-}
 //imports
 @import "partials/mixins";
 @import "partials/styleguide";
+@import "partials/flexbox";
+@import "partials/store";
+@import "partials/navigation";
+@import "partials/cards";
+@import "partials/scrollbar";
+@import "partials/footer";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Fira Sans, sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
+//1rem = 14px
 body {
-  background-color: $color-base-blue;
-  color: $color-base-w;
+  background-color: $site-color-offWhite;
+  font-size: 14px;
+  color: $true-black;
+  @media (min-width: 1440px) {
+    overflow-x: hidden;
+  }
+}
 
+li {
+  list-style-type: none;
 }
 
 a {
-  &:active {
-    color: orange;
+  color: $site-color-orange;
+  &:hover{
+    color: $site-color-red;
   }
-  &:visited{
-    color: orange;
+  &:active {
+    color: $site-color-orange;
+  }
+  &:visited {
+    color: $site-color-orange;
   }
 }
 
@@ -42,20 +54,218 @@ ul, li, a, p {
   text-decoration: none;
 }
 
-#mainLogo {
-  img {
-    @include alignSelf(center);
-    @include margin(0, auto);
-    height: auto;
-    width: 320px;
-    max-width: 320px;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-    @media screen and (max-width: 320px) {
-      width: 50%;
-    }
 
+textarea .editor {
+  height: 500px;
+  width: 400px;
+  color: $true-black;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.site-logo {
+  @include alignSelf(center);
+  @include margin(0, auto);
+  height: auto;
+  max-width: 700px;
+  width: 640px;
+  @media(max-width: 768px) {
+    width: 420px;
+  }
+  @media(max-width: 425px) {
+    width: 320px;
+  }
+  @media(max-width: 375px) {
+    width: 250px;
+  }
+  @media(max-width: 320px) {
+    width: 240px;
   }
 }
 
+.logo-cr-override {
+  color: $true-white;
+}
+
+.main-logo-bg {
+  background-color: $site-color-offBlack;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+
+.scene{
+  @media (min-width: 768px) {
+    height: 768px;
+  }
+  @media (max-width: 769px) {
+    height: auto;
+  }
+}
+
+.store .sr-plus {
+  &:hover {
+    box-shadow: 0 0 8px $site-color-red;
+  }
+}
+
+
+.utility-spacer {
+  padding-bottom: 10px;
+}
+
+
+.spacer {
+  margin: 1em 0 1em 0;
+}
+
+.st-spacer{
+  margin-top: 2rem;
+}
+
+.lg-spacer {
+  margin-bottom: 1em;
+}
+
+.sifter-icon{
+  background: no-repeat url('/images/svg/RGS-siftericon.svg');
+  display: block;
+  @media(max-width: 1440px){
+    background-position: 27%;
+
+  }
+  @media(max-width: 1024px){
+    background-position: 17%;
+  }
+  @media(max-width: 768px){
+    background-position: 7%;
+  }
+  @media(max-width: 425px){
+    background: none;
+  }
+}
+
+.feat-coming-soon{
+  height: 768px;
+}
+
+
+.social-row{
+  padding-top: 1rem;
+}
+.underline{
+  text-decoration: underline;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.bold{
+  font-weight: 800;
+}
+
+.contact-input{
+  width: 25%;
+  margin: 0 auto 1rem auto;
+  padding: 1em;
+  outline: none;
+  &:focus{
+    background-color: $site-color-orange1;
+    color: $true-white;
+  }
+  @media(max-width: 1024px){
+    width: 49rem;
+  }
+  @media(max-width: 768px){
+    width: 40rem;
+  }
+  @media(max-width: 425px){
+    width: 20rem;
+  }
+  @media(max-width: 320px){
+    width: 16rem;
+  }
+}
+
+#contactComment{
+  @extend .contact-input;
+  &:focus{
+    background-color: $site-color-orange1;
+    color: $true-white;
+  }
+}
+
+.contact-button{
+  @extend .contact-input;
+  @extend .back-btn;
+}
+
+.contact-info{
+  & h4{
+    margin-bottom: 1rem;
+    background-color: $site-color-gray;
+    padding: 0.5rem;
+    color: $site-color-offWhite2;
+  }
+ .contact-card{
+   height: auto;
+   width: 250px;
+   margin: 1rem 2rem;
+   color: $site-color-offBlack;
+   background-color: $site-color-offWhite1;
+   font-size: 26px;
+   border-radius: 10px;
+   border-bottom: 5px solid $site-color-offWhite2;
+   & h5{
+     font-size: 1.1rem;
+     padding: 0 0.4rem;
+     margin-bottom: 0.5rem;
+   }
+ }
+}
+
+.bigDate{
+  font-size: 3rem;
+}
+
+.addRed{
+  color: $search-color-red;
+}
+
+.g-recaptcha{
+  margin-bottom: 1rem;
+}
+
+.tos {
+  margin: 1em 3em 1em 3em;
+  h3{
+    margin-top: 2em;
+  }
+}
+
+.pp{
+  margin-bottom: 16em;
+  @extend .tos;
+  p, li{
+    margin-top: 1em;
+  }
+}
+
+.credits{
+  min-height: 575px;
+  height: 575px;
+}
+
+.return{
+  min-height: 420px;
+  height: 420px;
+}
+
+
+.left-color{
+  color: $site-color-darkRed;
+  font-weight: 700;
+}

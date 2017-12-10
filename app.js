@@ -1,32 +1,47 @@
-function initializeApp(db){
-    var express = require('express');
-    var path = require('path');
-    var favicon = require('serve-favicon');
-    var logger = require('morgan');
-    var cookieParser = require('cookie-parser');
-    var bodyParser = require('body-parser');
-    var mongoMiddleware = require('./middleware/mongo');
-    var methodOverride = require('method-override');
-    var session = require('express-session');
-    var MongoStore = require('connect-mongo')(session);
-    var setUserOnLocalsMiddleware = require('./middleware/user-local');
-    var promise = require('promise');
-    var LocalStrategy = require('passport-local').Strategy;
-    var expressHandlebars = require('express-handlebars');
-    var User = require('./lib/models/User');
-    var passport = require('passport');
-    var config = require('./config');
-    var secret = "Nibbieamylodgiduke2";
-    var index = require('./routes/index');
-    var users = require('./routes/users');
-    var login = require('./routes/login');
-    var logout = require('./routes/logout');
-    var register = require('./routes/register');
-    var flash = require('express-flash');
+function initializeApp() {
+    const express = require('express');
+    const path = require('path');
+    const favicon = require('serve-favicon');
+    const logger = require('morgan');
+    const cookieParser = require('cookie-parser');
+    const bodyParser = require('body-parser');
+    const methodOverride = require('method-override');
+    const expressValidator = require('express-validator');
+    const session = require('express-session');
+    const MongoStore = require('connect-mongo')(session);
+    const promise = require('promise');
+    const LocalStrategy = require('passport-local').Strategy;
+    const handlebars = require('handlebars');
+    const expressHandlebars = require('express-handlebars');
+    const User = require('./lib/models/User');
+    const Article = require('./lib/models/Article');
+    const Comment = require('./lib/models/Comment');
+    const passport = require('passport');
+    const config = require('./config');
+    const secret = "Nibbieamylodgiduke2";
+    const flash = require('express-flash');
+    const bluebird = require('bluebird');
+    const HBSlayouts = require('handlebars-layouts');
+    HBSlayouts.register(handlebars);
 
-    var app = express();
-    app.db = db;
+    //routes
+    const index = require('./routes/index');
+    const forgot = require('./routes/forgot');
+    const users = require('./routes/users');
+    const login = require('./routes/login');
+    const logout = require('./routes/logout');
+    const register = require('./routes/register');
+    const newsletter = require('./routes/articles');
+    const comment = require('./routes/comments');
+    const product = require('./routes/products');
+    const credits = require('./routes/credits');
+    const contact = require('./routes/contact');
+    const howto = require('./routes/how');
+    const tos = require('./routes/tos');
+    const privacy = require('./routes/privacy');
+    const returns = require('./routes/return');
 
+    const app = express();
 
     passport.use(new LocalStrategy({
             usernameField: 'username',
@@ -71,26 +86,33 @@ function initializeApp(db){
             done(null, user)
         });
     });
-    var handleBars = expressHandlebars.create({
+    const handleBars = expressHandlebars.create({
         layoutsDir: path.join(__dirname, 'views'),
         partialsDir: path.join(__dirname, 'views', 'partials'),
         defaultLayout: 'layout',
-        extname: '.hbs'
-        // helpers: {
-        //   formatDate: function (dateString) {
-        //     return moment(dateString).format("dddd, MMMM D / h A");
-        //   },
-        //   setChecked: function (value, currentValue) {
-        //     if (value == currentValue) {
-        //       return "checked"
-        //     } else {
-        //       return "";
-        //     }
-        //   },
-        //   toISOFormat: function (value) {
-        //     return moment('value').format('YYYY-MM-DDThh:mm');
-        //   }
-        // }
+        extname: '.hbs',
+        helpers: {
+            formatDate: function (dateString) {
+                return moment(dateString).format("dddd, MMMM D / h A");
+            },
+            setChecked: function (value, currentValue) {
+                if (value === currentValue) {
+                    return "checked"
+                } else {
+                    return "";
+                }
+            },
+            toISOFormat: function (value) {
+                return moment('value').format('YYYY-MM-DDThh:mm');
+            },
+            formatBlurb: function (body){
+                if (body.length >= 400) {
+                    return body.substring(0, 300)
+                } else {
+                    return body;
+                }
+            }
+        }
     });
 
 // view engine setup
@@ -106,8 +128,8 @@ function initializeApp(db){
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(cookieParser());
+    app.use(expressValidator());
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(mongoMiddleware(config.mongo));
     app.use(session({
         store: new MongoStore({url: config.mongo.connectionString}),
         secret: secret,
@@ -115,11 +137,10 @@ function initializeApp(db){
         resave: false,
         saveUninitialized: false
     }));
-    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(setUserOnLocalsMiddleware());
-    var authRouter = express.Router();
+    app.use(flash());
+    const authRouter = express.Router();
     authRouter.use(function (req, res, next) {
         if (req.isAuthenticated()) {
             return next()
@@ -128,15 +149,26 @@ function initializeApp(db){
     });
 
     app.use('/', index);
-    app.use('/users', users);
-    app.use('/login', login);
-    app.use('/register', register);
-    authRouter.use('/logout', logout);
-    app.use(authRouter);
+    app.use('/forgot/', forgot);
+    app.use('/users/', users);
+    app.use('/login/', login);
+    app.use('/register/', register);
+    app.use('/newsletter/', newsletter);
+    app.use('/newsletter/:id', newsletter);
+    app.use('/newsletter/create', newsletter);
+    app.use('/newsletter/:id/comments', comment);
+    app.use('/product/', product);
+    app.use('/credits/', credits);
+    app.use('/contact/', contact);
+    app.use('/howto/', howto);
+    app.use('/tos/', tos);
+    app.use('/privacy/', privacy);
+    app.use('/return/', returns);
+    app.use('/logout', logout);
 
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {
-        var err = new Error('Not Found');
+        const err = new Error('Not Found');
         err.status = 404;
         next(err);
     });
@@ -154,4 +186,5 @@ function initializeApp(db){
     return app;
 
 }
+
 module.exports = initializeApp;

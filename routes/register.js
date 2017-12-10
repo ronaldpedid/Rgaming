@@ -1,30 +1,44 @@
+const express = require('express');
+const router = express.Router();
+const flash = require('express-flash');
+const User = require('../lib/models/User');
 
-var express = require('express');
-var router = express.Router();
-var User = require('../lib/models/User');
-
-/* GET home page. */
-//router.get('/', function(req, res, next) {
-//res.render('index', { title: 'Chronicles: GTC', condition:true, anyArray: [1,2,3] });
-//});
 
 router.get('/', function (req, res, next) {
-    res.render('register');
+    res.render('register', {
+        success: false,
+        errors: req.session.errors
+    });
 });
 
 router.post('/', function (req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
-    var firstname = req.body.firstname;
-    var lastname = req.body.lastname;
-    var emailAddress = req.body.emailAddress;
+    const username = req.body.username;
+    const password = req.body.password;
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
+    const email = req.body.email;
 
-    var newuser = new User();
+
+    const newuser = new User();
     newuser.username = username;
     newuser.password = password;
     newuser.firstname = firstname;
     newuser.lastname = lastname;
-    newuser.emailAddress = emailAddress;
+    newuser.email = email;
+
+    //validation
+    req.check('username', 'Username is to short.').isLength({min: 2});
+    req.check('password', 'Passwords do not match').isLength({min: 4}).equals(req.body.confirmPassword);
+    req.check('email', 'E-mail Address is invalid').isEmail();
+    req.check('firstname', 'Please Enter your first name').isLength({min: 2});
+    req.check('lastname', 'Please Enter your last name').isLength({min: 2});
+
+    let errors = req.validationErrors();
+    if (errors) {
+        req.session.errors = errors;
+        return res.redirect('/register');
+    }
+
     newuser.save(function (err, savedUser) {
         if (err) {
             console.log(err);

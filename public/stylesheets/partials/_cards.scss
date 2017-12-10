@@ -1,0 +1,80 @@
+.card-wrapper{
+  @include flexFlow(col, wrap);
+
+}
+
+.card-wrapper-lg, .card-wrapper-sm{
+  @extend .card-wrapper;
+
+
+}
+
+.card-wrapper-sm{
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 350px;
+  height: auto;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: #1e6abc;
+  h3{
+    @include margin(1rem, auto);
+  }
+  img{
+    height: 175px;
+    width: 175px;
+    padding-right: .5rem;
+  }
+  p{
+    @include alignSelf(flex-start);
+  }
+}
+
+.card-wrapper-main{
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 350px;
+  height: 300px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: #1e6abc;
+  h3{
+    @include margin(1rem, auto);
+  }
+  img{
+    height: 175px;
+    width: 175px;
+    padding-right: .5rem;
+  }
+
+}
+
+.info-container{
+  margin: 0 auto;
+  padding: 3rem;
+  font-size: 26px;
+  text-align: left;
+  & h1{
+    font-weight: 600;
+  }
+  & h3{
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+  }
+  @media (max-width: 767px){
+    padding: 2rem;
+    font-size: 22px;
+    text-align: left;
+  }
+}
+
+.howto-sample{
+  @extend #metaTags;
+  margin: 1rem 0;
+}
+
+span.bold{
+  @media (max-width: 320px){
+    margin-top: 1em;
+  }
+}
