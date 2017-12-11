@@ -317,13 +317,15 @@ $(document).ready(function () {
     waitForShopRocket(function () {
         if (isLoaded !== true) {
             $('#productSingle').addClass('loader');
-
         } else {
             $('#productSingle').removeClass('loader');
 
 
         }
     });
+
+
+
 
     function fadeInLore(){
         $('#lore').removeClass("hide");

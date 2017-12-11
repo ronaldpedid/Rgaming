@@ -5,14 +5,14 @@
 </header>
 <section class="contact">
     <h1 class="center-text">Send us a raven.</h1>
-
-    <form class="flex col" action="action" method="post">
+    <h2 class="center-text spacer"><em>{{msg}}</em></h2>
+    <form class="flex col" action="{{action}}" method="POST">
         <label for="name"></label>
-        <input class="contact-input" type="text" placeholder="Name">
+        <input name="name" class="contact-input" type="text" placeholder="Name" value="{{name}}">
         <label for="email"></label>
-        <input class="contact-input"  type="email" placeholder="E-Mail Address">
-        <textarea name="comment" id="contactComment" cols="30" rows="13" placeholder="Submit feedback about the site, or just tell how you're feeling."></textarea>
-        <div class="g-recaptcha flex justify-c" data-sitekey="6Lf89ToUAAAAAL7-4csF61vzmCimRWAUl-m_sJjW" data-theme="light"></div>
+        <input name="email" class="contact-input"  type="email" placeholder="E-Mail Address" value="{{email}}">
+        <textarea name="message"  id="contactComment" cols="30" rows="13" placeholder="Submit feedback about the site, or just tell how you're feeling."></textarea>
+        <!--<div class="g-recaptcha flex justify-c" type="html" data-sitekey="6Lf89ToUAAAAAL7-4csF61vzmCimRWAUl-m_sJjW" data-theme="light"></div>-->
         <button class="contact-button bold uppercase center-text" type="submit">Send</button>
     </form>
 

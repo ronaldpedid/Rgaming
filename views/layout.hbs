@@ -25,12 +25,6 @@
 {{#if message.error}}
     <div class="flash-box error">{{ message.error }}</div>
 {{/if}}
-{{#if user}}
-    <div class="userinfo main-logo-bg">
-        <span class="username">Welcome, {{user.username}}</span>
-        <a class="userlink" href="/logout">Logout</a>
-    </div>
-{{/if}}
 <div class="sr-basket-override">
     <div id="sr-basket-widget" class="sr-right sr-override"><span class="sr-confirm-amount"></span></div>
 </div>
@@ -66,7 +60,7 @@
     <h4 class="flex justify-c footer-copy-spacer">&copy;Copyright 2017 Renaissance Game Supply. All Rights Reserved.</h4>
 </footer>
 <!-- S C R I P T S -->
-{{#block "scripts"}}
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/javascripts/jquery-3.2.1.min.js"></script>
@@ -106,6 +100,6 @@
         gtag('config', 'UA-110960048-1');
     </script>
 
-{{/block}}
+
 </body>
 </html>

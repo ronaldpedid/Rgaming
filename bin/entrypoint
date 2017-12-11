@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo 'entrypoint'
+
+if [[ "$@" ]]
+then
+    $@
+else
+    /home/app/bin/www
+fi

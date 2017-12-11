@@ -12,6 +12,7 @@ function initializeApp() {
     const promise = require('promise');
     const LocalStrategy = require('passport-local').Strategy;
     const handlebars = require('handlebars');
+    const hbs = require('hbs');
     const expressHandlebars = require('express-handlebars');
     const User = require('./lib/models/User');
     const Article = require('./lib/models/Article');
@@ -22,6 +23,7 @@ function initializeApp() {
     const flash = require('express-flash');
     const bluebird = require('bluebird');
     const HBSlayouts = require('handlebars-layouts');
+    const mailer = require("nodemailer");
     HBSlayouts.register(handlebars);
 
     //routes
@@ -131,7 +133,6 @@ function initializeApp() {
     app.use(expressValidator());
     app.use(express.static(path.join(__dirname, 'public')));
     app.use(session({
-        store: new MongoStore({url: config.mongo.connectionString}),
         secret: secret,
         maxAge: 60 * 60 * 1000, // ms; lasts for one hour
         resave: false,
@@ -149,14 +150,14 @@ function initializeApp() {
     });
 
     app.use('/', index);
-    app.use('/forgot/', forgot);
+    authRouter.use('/forgot/', forgot);
     app.use('/users/', users);
     app.use('/login/', login);
     app.use('/register/', register);
-    app.use('/newsletter/', newsletter);
-    app.use('/newsletter/:id', newsletter);
-    app.use('/newsletter/create', newsletter);
-    app.use('/newsletter/:id/comments', comment);
+    authRouter.use('/newsletter/', newsletter);
+    authRouter.use('/newsletter/:id', newsletter);
+    authRouter.use('/newsletter/create', newsletter);
+    authRouter.use('/newsletter/:id/comments', comment);
     app.use('/product/', product);
     app.use('/credits/', credits);
     app.use('/contact/', contact);
@@ -164,7 +165,7 @@ function initializeApp() {
     app.use('/tos/', tos);
     app.use('/privacy/', privacy);
     app.use('/return/', returns);
-    app.use('/logout', logout);
+    authRouter.use('/logout', logout);
 
 // catch 404 and forward to error handler
     app.use(function (req, res, next) {

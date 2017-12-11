@@ -162,9 +162,6 @@
 .prod-border {
   border: 3px solid #cbcec0; }
 
-.relate-pro-space {
-  padding: 0 1rem 0 0; }
-
 .related-helper {
   margin-bottom: 1em; }
 
@@ -181,6 +178,10 @@
 
 .prod-related {
   margin-bottom: 1em; }
+  @media (max-width: 425px) {
+    .prod-related h1 {
+      margin: 1rem;
+      font-size: 1rem; } }
 
 .product-card {
   background-color: #ffffff;
@@ -315,7 +316,7 @@
     #rgComBtn button,
     #rgBGamesBtn button, .howto-sample button {
       border-color: #ffffff;
-      background-color: #ca4528;
+      background-color: #f44336;
       color: #ffffff;
       outline: none;
       font-size: 18px; } }
@@ -558,24 +559,31 @@ textarea .editor {
 .center-text {
   text-align: center; }
 
-.site-logo {
-  align-self: center;
-  margin: 0 auto;
-  height: auto;
-  max-width: 700px;
-  width: 640px; }
-  @media (max-width: 768px) {
-    .site-logo {
-      width: 420px; } }
-  @media (max-width: 425px) {
-    .site-logo {
-      width: 320px; } }
-  @media (max-width: 375px) {
-    .site-logo {
-      width: 250px; } }
-  @media (max-width: 320px) {
-    .site-logo {
-      width: 240px; } }
+@media (max-width: 2000px) {
+  .site-logo {
+    align-self: center;
+    margin: 0 auto;
+    height: auto;
+    max-width: 700px;
+    width: 640px; } }
+
+@media (max-width: 768px) {
+  .site-logo {
+    width: 420px; } }
+
+@media (max-width: 425px) {
+  .site-logo {
+    width: 320px;
+    margin: 0 5px;
+    align-self: flex-start; } }
+
+@media (max-width: 375px) {
+  .site-logo {
+    width: 250px; } }
+
+@media (max-width: 320px) {
+  .site-logo {
+    width: 240px; } }
 
 .logo-cr-override {
   color: #ffffff; }
@@ -627,6 +635,9 @@ textarea .editor {
 
 .feat-coming-soon {
   height: 768px; }
+  @media (max-width: 425px) {
+    .feat-coming-soon h1 {
+      font-size: 1rem; } }
 
 .social-row {
   padding-top: 1rem; }
@@ -687,6 +698,12 @@ textarea .editor {
 
 .bigDate {
   font-size: 3rem; }
+  @media (max-width: 425px) {
+    .bigDate {
+      font-size: 1rem; } }
+  @media (max-width: 320px) {
+    .bigDate {
+      font-size: 1rem; } }
 
 .addRed {
   color: #ca4528; }
@@ -715,3 +732,16 @@ textarea .editor {
 .left-color {
   color: #8e1928;
   font-weight: 700; }
+
+@media (max-width: 1024px) {
+  #lore1 em {
+    margin: 0 1rem;
+    padding: 0 1em; } }
+
+@media (max-width: 425px) {
+  #lore1 em {
+    margin: 0 0.8rem;
+    font-size: smaller; } }
+
+.out {
+  color: #8e1928; }

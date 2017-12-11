@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const flash = require('express-flash');
-const creds = require('../creds');
 const User = require('../lib/models/User');
 const async = require('async');
 const nodemailer = require('nodemailer');

@@ -38,5 +38,17 @@ function filterItems1(){
 }
 
 
+function outOfStock(){
+    let qty, span;
+    qty = document.getElementsByClassName('sr-quantity');
+    span = document.getElementsByClassName('out');
+
+    if(qty.length.value === 0){
+        qty.innerHTML = " ";
+        span.innerHTML = "Out of Stock";
+    }
+}
+outOfStock();
+
 
 //AJAX
