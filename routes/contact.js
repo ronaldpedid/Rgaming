@@ -12,9 +12,9 @@ router.get('/', function (req, res, next) {
     });
 });
 
-// router.post('https://www.google.com/recaptcha/api/siteverify', function (req, res) {
-//     res.send(response);
-// });
+router.post('https://www.google.com/recaptcha/api/siteverify', function (req, res) {
+    res.send(response);
+});
 
 
 router.post('/send', function (req, res) {
