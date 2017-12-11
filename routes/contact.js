@@ -38,7 +38,7 @@ router.post('/send', function (req, res) {
             pass: 'Nibbiepie420'  // generated ethereal password
         },
         tls:{
-            rejectUnauthorized:false
+            rejectUnauthorized:true
         }
     });
 
