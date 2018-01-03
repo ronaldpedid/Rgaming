@@ -753,8 +753,9 @@ textarea .editor {
 .out {
   color: #8e1928; }
 
-body.store ins {
-  align-self: center; }
+ins {
+  align-self: center;
+}
 
 .adSlot {
   height: 100px;
