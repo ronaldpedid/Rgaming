@@ -134,7 +134,6 @@ textarea .editor {
 }
 
 .sifter-icon {
-  background: no-repeat url('/images/svg/RGS-siftericon.svg');
   display: block;
   @media(max-width: 1440px) {
     background-position: 27%;
@@ -323,4 +322,9 @@ textarea .editor {
 
 iframe{
   align-self: center;
+}
+
+.ad{
+  align-self: center;
+  max-width: 900px;
 }
