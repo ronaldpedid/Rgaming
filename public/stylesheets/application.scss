@@ -303,13 +303,11 @@ textarea .editor {
   color: $site-color-darkRed;
 }
 
-ins .adsbygoogle{
+.adsbygoogle{
   align-self: center;
 }
 
 .adSlot {
-  justify-content: center;
-  align-self: center;
   height: 100px;
   width: 318px;
   @media (min-width: 500px) {
@@ -327,7 +325,5 @@ ins .adsbygoogle{
 }
 
 iframe{
-  display: flex;
-  justify-content: center;
   align-self: center;
 }
