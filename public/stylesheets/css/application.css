@@ -135,18 +135,21 @@
   @media (max-width: 1024px) {
     .store .sr-basket-override #sr-basket-widget {
       right: 12em; } }
+  @media (max-width: 800px) {
+    .store .sr-basket-override #sr-basket-widget {
+      right: 3em; } }
   @media (max-width: 768px) {
     .store .sr-basket-override #sr-basket-widget {
-      right: 8em; } }
+      right: 3em; } }
   @media (max-width: 600px) {
     .store .sr-basket-override #sr-basket-widget {
-      right: 2em; } }
+      right: 0; } }
   @media (max-width: 425px) {
     .store .sr-basket-override #sr-basket-widget {
-      right: 1em; } }
+      right: 0; } }
   @media (max-width: 320px) {
     .store .sr-basket-override #sr-basket-widget {
-      right: 2px; } }
+      right: 0; } }
 
 .price-size {
   font-size: 2rem;
@@ -359,7 +362,7 @@
 
 .site-filter {
   width: 100%;
-  margin-left: -1; }
+  margin-left: -1px; }
 
 .searchInput {
   width: 100%; }
@@ -750,10 +753,12 @@ textarea .editor {
 .out {
   color: #8e1928; }
 
-.googleAdd {
-  margin-top: 1rem; }
+ins .adsbygoogle {
+  align-self: center; }
 
 .adSlot {
+  justify-content: center;
+  align-self: center;
   height: 100px;
   width: 318px; }
   @media (min-width: 500px) {

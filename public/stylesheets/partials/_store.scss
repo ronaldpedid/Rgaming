@@ -115,18 +115,20 @@
   @media (max-width: 1024px) {
     right: 12em;
   }
+  @media (max-width: 800px) {
+    right: 3em;
+  }
   @media (max-width: 768px) {
-    right: 8em;
+    right: 3em;
   }
   @media (max-width: 600px) {
-    right: 2em;
-
+    right: 0;
   }
   @media(max-width: 425px) {
-    right: 1em;
+    right: 0;
   }
   @media(max-width: 320px) {
-    right: 2px;
+    right: 0;
   }
 }
 
