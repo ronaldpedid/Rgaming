@@ -754,7 +754,8 @@ textarea .editor {
 
 .adSlot {
   height: 100px;
-  width: 318px; }
+  width: 318px;
+  align-self: center; }
   @media (min-width: 500px) {
     .adSlot {
       width: 468px;
@@ -767,10 +768,3 @@ textarea .editor {
     .adSlot {
       width: 900px;
       height: 120px; } }
-
-iframe {
-  align-self: center; }
-
-.ad {
-  align-self: center;
-  max-width: 900px; }
