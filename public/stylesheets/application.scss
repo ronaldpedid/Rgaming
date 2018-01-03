@@ -308,13 +308,9 @@ textarea .editor {
 }
 
 .adSlot {
+
   height: 100px;
   width: 318px;
-  img{
-    justify-content: center;
-    align-self: center;
-    margin:0 auto;
-  }
   @media (min-width: 500px) {
     width: 468px;
     height: 60px;
@@ -327,4 +323,10 @@ textarea .editor {
     width: 900px;
     height: 120px;
   }
+}
+
+iframe{
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }

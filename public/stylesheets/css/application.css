@@ -756,10 +756,6 @@ textarea .editor {
 .adSlot {
   height: 100px;
   width: 318px; }
-  .adSlot img {
-    justify-content: center;
-    align-self: center;
-    margin: 0 auto; }
   @media (min-width: 500px) {
     .adSlot {
       width: 468px;
@@ -772,3 +768,8 @@ textarea .editor {
     .adSlot {
       width: 900px;
       height: 120px; } }
+
+iframe {
+  display: flex;
+  justify-content: center;
+  align-self: center; }
