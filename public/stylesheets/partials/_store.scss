@@ -103,14 +103,14 @@
 .store .sr-basket-override #sr-basket-widget {
   position: absolute;
   top: 0;
-  right: 29rem;
+  right: 20rem;
   background-color: $search-color-red;
   color: $site-color-offWhite1;
   border-top-left-radius: 0;
   border-bottom-right-radius: 6px;
   z-index: 5;
   @media(max-width: 1440px) {
-    right: 20rem;
+    right: 16rem;
   }
   @media (max-width: 1024px) {
     right: 12em;
@@ -120,13 +120,13 @@
   }
   @media (max-width: 600px) {
     right: 2em;
-    left: 0;
+
   }
   @media(max-width: 425px) {
     right: 1em;
   }
   @media(max-width: 320px) {
-    right: 0;
+    right: 2px;
   }
 }
 
@@ -212,3 +212,8 @@
 }
 
 
+iframe{
+  @media(min-width: 320px){
+    max-width: 320px;
+  }
+}

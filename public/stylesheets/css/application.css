@@ -123,7 +123,7 @@
 .store .sr-basket-override #sr-basket-widget {
   position: absolute;
   top: 0;
-  right: 29rem;
+  right: 20rem;
   background-color: #ca4528;
   color: #fcf8e3;
   border-top-left-radius: 0;
@@ -131,19 +131,22 @@
   z-index: 5; }
   @media (max-width: 1440px) {
     .store .sr-basket-override #sr-basket-widget {
-      right: 20rem; } }
+      right: 16rem; } }
   @media (max-width: 1024px) {
     .store .sr-basket-override #sr-basket-widget {
       right: 12em; } }
   @media (max-width: 768px) {
     .store .sr-basket-override #sr-basket-widget {
       right: 8em; } }
+  @media (max-width: 600px) {
+    .store .sr-basket-override #sr-basket-widget {
+      right: 2em; } }
   @media (max-width: 425px) {
     .store .sr-basket-override #sr-basket-widget {
       right: 1em; } }
   @media (max-width: 320px) {
     .store .sr-basket-override #sr-basket-widget {
-      right: 0; } }
+      right: 2px; } }
 
 .price-size {
   font-size: 2rem;
@@ -209,6 +212,10 @@
   @media (max-width: 949px) {
     .bot-pin {
       flex-flow: column nowrap; } }
+
+@media (min-width: 320px) {
+  iframe {
+    max-width: 320px; } }
 
 .nav-container, .nav-container-mobile {
   padding: 3.5em 0 0 0;
@@ -525,7 +532,8 @@ body::-webkit-scrollbar-thumb {
 body {
   background-color: #e8e8e8;
   font-size: 14px;
-  color: #000000; }
+  color: #000000;
+  height: auto; }
   @media (min-width: 1440px) {
     body {
       overflow-x: hidden; } }
@@ -745,3 +753,19 @@ textarea .editor {
 
 .out {
   color: #8e1928; }
+
+.googleAdd {
+  margin-top: 1rem; }
+
+.adSlot {
+  height: 100px;
+  width: 320px;
+  align-self: center; }
+  @media (min-width: 500px) {
+    .adSlot {
+      width: 468px;
+      height: 60px; } }
+  @media (min-width: 800px) {
+    .adSlot {
+      width: 728px;
+      height: 90px; } }
