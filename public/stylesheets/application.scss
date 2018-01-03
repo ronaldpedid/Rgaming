@@ -308,9 +308,9 @@ textarea .editor {
 }
 
 .adSlot {
-  height: 320px;
-  width: 100px;
-
+  height: 100px;
+  width: 320px;
+  align-self: center;
   @media (min-width: 500px) {
     width: 468px;
     height: 60px;
