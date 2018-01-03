@@ -20,6 +20,7 @@ body {
   background-color: $site-color-offWhite;
   font-size: 14px;
   color: $true-black;
+  height: auto;
   @media (min-width: 1440px) {
     overflow-x: hidden;
   }
@@ -284,9 +285,9 @@ textarea .editor {
 }
 
 #lore1 {
-  @media(max-width: 1024px){
-    em{
-      @include margin(0,1rem);
+  @media(max-width: 1024px) {
+    em {
+      @include margin(0, 1rem);
       padding: 0 1em;
     }
   }
@@ -302,3 +303,20 @@ textarea .editor {
   color: $site-color-darkRed;
 }
 
+.googleAdd {
+  margin-top: 1rem;
+}
+
+.adSlot {
+  height: 320px;
+  width: 100px;
+
+  @media (min-width: 500px) {
+    width: 468px;
+    height: 60px;
+  }
+  @media (min-width: 800px) {
+    width: 728px;
+    height: 90px;
+  }
+}

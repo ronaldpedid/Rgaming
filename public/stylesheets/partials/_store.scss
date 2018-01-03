@@ -118,6 +118,10 @@
   @media (max-width: 768px) {
     right: 8em;
   }
+  @media (max-width: 600px) {
+    right: 2em;
+    left: 0;
+  }
   @media(max-width: 425px) {
     right: 1em;
   }
