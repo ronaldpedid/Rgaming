@@ -309,8 +309,12 @@ textarea .editor {
 
 .adSlot {
   height: 100px;
-  width: 320px;
-  align-self: center;
+  width: 318px;
+  img{
+    justify-content: center;
+    align-self: center;
+    margin:0 auto;
+  }
   @media (min-width: 500px) {
     width: 468px;
     height: 60px;
@@ -318,5 +322,9 @@ textarea .editor {
   @media (min-width: 800px) {
     width: 728px;
     height: 90px;
+  }
+  @media (min-width: 1440px){
+    width: 900px;
+    height: 120px;
   }
 }
