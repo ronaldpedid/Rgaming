@@ -753,12 +753,10 @@ textarea .editor {
 .out {
   color: #8e1928; }
 
-ins .adsbygoogle {
+body.store ins {
   align-self: center; }
 
 .adSlot {
-  justify-content: center;
-  align-self: center;
   height: 100px;
   width: 318px; }
   @media (min-width: 500px) {
@@ -774,7 +772,4 @@ ins .adsbygoogle {
       width: 900px;
       height: 120px; } }
 
-iframe {
-  display: flex;
-  justify-content: center;
-  align-self: center; }
+
