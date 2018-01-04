@@ -768,3 +768,15 @@ textarea .editor {
     .adSlot {
       width: 900px;
       height: 120px; } }
+
+.ccg-store-info {
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 0;
+  background-color: #8e1928; }
+  .ccg-store-info h1 {
+    font-size: 4rem;
+    color: #e8e8e8; }
+  .ccg-store-info a {
+    font-size: 2rem;
+    color: #cbcec0; }

@@ -321,3 +321,18 @@ textarea .editor {
   }
 }
 
+.ccg-store-info{
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 0;
+  background-color: $site-color-darkRed;
+  & h1{
+    font-size: 4rem;
+    color: $site-color-offWhite
+  }
+  & a{
+    font-size: 2rem;
+    color: $site-color-offWhite2;
+
+  }
+}
